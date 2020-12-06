@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\PostCardSendingService;
-use App\Postcard;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\PayOrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,23 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/postcard', function(){
+require __DIR__.'/auth.php';
 
-    $postCardService = new PostCardSendingService("Bangladesh", 5, 8);
-
-    $postCardService->hello('Hello welcome', 'ridwanhoque2@gmail.com');
-    
-});
-
-
-Route::get('/facades', function(){
-    Postcard::anyother('123');
-});
-
-//test
-
-Route::get('/test', [TestController::class, 'index']);
+Route::get('pay', [PayOrderController::class, 'store']);

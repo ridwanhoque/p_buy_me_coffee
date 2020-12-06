@@ -13,14 +13,12 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        @livewireStyles
-
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-dropdown')
+            @include('layouts.navigation')
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
@@ -34,9 +32,5 @@
                 {{ $slot }}
             </main>
         </div>
-
-        @stack('modals')
-
-        @livewireScripts
     </body>
 </html>
