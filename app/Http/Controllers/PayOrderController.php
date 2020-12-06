@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Billing\PaymentGateway;
-use Faker\Provider\ar_SA\Payment;
-use Illuminate\Http\Request;
+use App\Orders\OrderDetails;
+use App\Billing\PaymentGatewayContract;
 
 class PayOrderController extends Controller
 {
-    public function store(PaymentGateway $payment_gateway){
+    public function store(OrderDetails $orderDetails, PaymentGatewayContract $payment_gateway){
 
         // $payment_gateway = new PaymentGateway();
+        $order = $orderDetails->all();
 
         dd($payment_gateway->charge(500));
 

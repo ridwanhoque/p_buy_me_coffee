@@ -2,12 +2,13 @@
 
 namespace App\Providers;
 
-use App\Billing\PaymentGateway;
+use App\Billing\BankPaymentGateway;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\PostCardSendingService;
 use App\Models\Category;
 use App\Observers\CategoryObserver;
+use App\Billing\PaymentGatewayContract;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,8 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(PaymentGateway::class, function($app){
-            return new PaymentGateway('usd');
+        $this->app->singleton(PaymentGatewayContract::class, function($app){
+            return new BankPaymentGateway('usd');
         });
     }
 
