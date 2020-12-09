@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayOrderController;
 use App\Http\Controllers\SocialLoginController;
@@ -27,3 +28,5 @@ require __DIR__.'/auth.php';
 
 Route::get('pay', [PayOrderController::class, 'store']);
 Route::get('social_login', [SocialLoginController::class, 'index']);
+Route::get('gmail/redirect', [GoogleController::class, 'redirectToGoogle']);
+Route::get('gmail/callback', [GoogleController::class, 'handleGoogleCallback']);
