@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\ImportBulkDataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayOrderController;
 use App\Http\Controllers\SocialLoginController;
@@ -30,3 +31,7 @@ Route::get('pay', [PayOrderController::class, 'store']);
 Route::get('social_login', [SocialLoginController::class, 'index']);
 Route::get('gmail/redirect', [GoogleController::class, 'redirectToGoogle']);
 Route::get('gmail/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+// import bulk data from csv
+Route::get('upload', [ImportBulkDataController::class, 'index']);
+Route::post('upload', [ImportBulkDataController::class, 'upload']);

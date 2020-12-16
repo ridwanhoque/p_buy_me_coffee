@@ -18,7 +18,8 @@
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
-        "srmklive/paypal": "^3.0"
+        "srmklive/paypal": "^3.0",
+        "sven/artisan-view": "^3.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
