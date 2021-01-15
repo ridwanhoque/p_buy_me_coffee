@@ -35,3 +35,5 @@ Route::get('gmail/callback', [GoogleController::class, 'handleGoogleCallback']);
 // import bulk data from csv
 Route::get('upload', [ImportBulkDataController::class, 'index']);
 Route::post('upload', [ImportBulkDataController::class, 'upload']);
+
+// Route::resource('categories', [CategoryController::class]);
